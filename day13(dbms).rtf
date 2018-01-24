@@ -1,0 +1,441 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.15063}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9 Setting environment for using XAMPP for Windows.\par
+701111@128-IMAC38 c:\\xampp\par
+# mysql-u root -p\par
+'mysql-u' is not recognized as an internal or external command,\par
+operable program or batch file.\par
+\par
+701111@128-IMAC38 c:\\xampp\par
+# mysql -u root -p\par
+Enter password:\par
+Welcome to the MariaDB monitor.  Commands end with ; or \\g.\par
+Your MariaDB connection id is 2\par
+Server version: 10.1.21-MariaDB mariadb.org binary distribution\par
+\par
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.\par
+\par
+Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\par
+\par
+MariaDB [(none)]> show databases;\par
++--------------------+\par
+| Database           |\par
++--------------------+\par
+| information_schema |\par
+| mysql              |\par
+| performance_schema |\par
+| phpmyadmin         |\par
+| test               |\par
++--------------------+\par
+5 rows in set (0.03 sec)\par
+\par
+MariaDB [(none)]> use test;\par
+Database changed\par
+MariaDB [test]> CREATE OR REPLACE TABLE EMP_DETAILS(\par
+    -> EMPLOYEE_ID INTEGER(6) PRIMARY KEY,\par
+    -> FIRST_NAME VARCHAR(20),\par
+    -> LAST_NAME VARCHAR(25) NOT NULL,\par
+    -> EMAIL VARCHAR(25) NOT NULL,\par
+    -> PHONE_NUMBER VARCHAR(20),\par
+    -> HIRE_DATE DATE,\par
+    -> JOB_ID VARCHAR(10) NOT NULL,\par
+    -> SALARY REAL(8,2),\par
+    -> COMMISSION_PCT REAL(2,2));\par
+Query OK, 0 rows affected (0.53 sec)\par
+\par
+MariaDB [test]> show tables;\par
++----------------+\par
+| Tables_in_test |\par
++----------------+\par
+| emp_details    |\par
++----------------+\par
+1 row in set (0.00 sec)\par
+\par
+MariaDB [test]> INSERT INTO EMP_DETAILS VALUES(100,'STEVEN','KING','STEVEN.KING@GMAIL.COM','2345678','1998-01-14','AD_PRES',24000.0,0.10);\par
+Query OK, 1 row affected (0.09 sec)\par
+\par
+MariaDB [test]> INSERT INTO EMP_DETAILS VALUES(101,'NEENA','KOCHHAR','NEENA.KOCHHAR@GMAIL.COM','2345678','2002-10-10','AD_VP',17000.0,0.50);\par
+Query OK, 1 row affected (0.05 sec)\par
+\par
+MariaDB [test]> INSERT INTO EMP_DETAILS VALUES(102,'LEX','DE HANN','LEX.HANN@GMAIL.COM','2345678','1995-10-20','AD_VP',17000.0,0.50);\par
+Query OK, 1 row affected (0.16 sec)\par
+\par
+MariaDB [test]> INSERT INTO EMP_DETAILS VALUES(103,'ALEXANDER','HUNOLD','ALEXANDER.HUNOLD@GMAIL.COM','2345678','2002-11-23','IT_PROG',9000.0,0.25);\par
+Query OK, 1 row affected, 1 warning (0.14 sec)\par
+\par
+MariaDB [test]> INSERT INTO EMP_DETAILS VALUES(104,'BRUCE','ERNST','BRUCE.ERNST@GMAIL.COM','2345678','2003-08-24','IT_PROG',6000.0,0.25);\par
+Query OK, 1 row affected (0.09 sec)\par
+\par
+MariaDB [test]> INSERT INTO EMP_DETAILS VALUES(105,'DAVID','AUSTIN','DAVID.AUSTIN@GMAIL.COM','2345678','2005-04-10','IT_PROG',4800.0,0.25);\par
+Query OK, 1 row affected (0.09 sec)\par
+\par
+MariaDB [test]>\par
+MariaDB [test]>\par
+MariaDB [test]> CREATE OR REPLACE TABLE LOG_EMP_DETAILS(\par
+    ->     EMPLOYEE_ID INTEGER(6),\par
+    ->     SALARY DOUBLE(8,2),\par
+    ->     EDTTIME DATETIME);\par
+Query OK, 0 rows affected (1.48 sec)\par
+\par
+MariaDB [test]>\par
+MariaDB [test]> CREATE OR REPLACE TABLE LOG_EMP_DETAILS_UPDATE(\par
+    ->     USER VARCHAR(50),\par
+    ->     DESCRIPTION VARCHAR(100),\par
+    ->     UDTTIME DATETIME);\par
+Query OK, 0 rows affected (1.13 sec)\par
+\par
+MariaDB [test]>\par
+MariaDB [test]> CREATE OR REPLACE TABLE STUD_MARKS(\par
+    ->     STUDENT_ID INTEGER(3) PRIMARY KEY,\par
+    ->     NAME VARCHAR(40) NOT NULL,\par
+    ->     SUB1 DOUBLE(4,2),\par
+    ->     SUB2 DOUBLE(4,2),\par
+    ->     SUB3 DOUBLE(4,2),\par
+    ->     SUB4 DOUBLE(4,2),\par
+    ->     SUB5 DOUBLE(4,2),\par
+    ->     TOTAL DOUBLE(5,2),\par
+    ->     PERCENTAGE DOUBLE(4,2),\par
+    ->     GRADE VARCHAR(20));\par
+Query OK, 0 rows affected (0.77 sec)\par
+\par
+MariaDB [test]>\par
+MariaDB [test]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(1,'ALEX');\par
+Query OK, 1 row affected (0.11 sec)\par
+\par
+MariaDB [test]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(2,'BOB');\par
+Query OK, 1 row affected (0.14 sec)\par
+\par
+MariaDB [test]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(3,'CHARLEY');\par
+Query OK, 1 row affected (0.23 sec)\par
+\par
+MariaDB [test]> INSERT INTO STUD_MARKS (STUDENT_ID,NAME) VALUES(4,'DONNA');\par
+Query OK, 1 row affected (0.28 sec)\par
+\par
+MariaDB [test]>\par
+MariaDB [test]>\par
+MariaDB [test]>\par
+MariaDB [test]> CREATE TABLE price_logs (\par
+    ->     id INT(11) PRIMARY KEY AUTO_INCREMENT,\par
+    ->     product_code INT(3) NOT NULL,\par
+    ->     price DECIMAL(10) NOT NULL);\par
+Query OK, 0 rows affected (1.01 sec)\par
+\par
+MariaDB [test]>\par
+MariaDB [test]> CREATE TABLE user_change_logs (\par
+    ->   id int(11) NOT NULL AUTO_INCREMENT,\par
+    ->   product_code INT(3) DEFAULT NULL,\par
+    ->   updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\par
+    ->   updated_by varchar(30) NOT NULL,\par
+    ->   PRIMARY KEY (id));\par
+Query OK, 0 rows affected (3.95 sec)\par
+\par
+MariaDB [test]> show tables;\par
++------------------------+\par
+| Tables_in_test         |\par
++------------------------+\par
+| emp_details            |\par
+| log_emp_details        |\par
+| log_emp_details_update |\par
+| price_logs             |\par
+| stud_marks             |\par
+| user_change_logs       |\par
++------------------------+\par
+6 rows in set (0.01 sec)\par
+\par
+MariaDB [test]> create trigger ins_sum\par
+    -> before insert ON account\par
+    -> for each row SET @sum = @sum + NEW.n1;\par
+ERROR 1146 (42S02): Table 'test.account' doesn't exist\par
+MariaDB [test]> create trigger ins_sum\par
+    -> before insert ON number\par
+    -> for each row SET @sum = NEW.n1;\par
+ERROR 1146 (42S02): Table 'test.number' doesn't exist\par
+MariaDB [test]> create table numbers(N1 float(5,2));\par
+Query OK, 0 rows affected (0.47 sec)\par
+\par
+MariaDB [test]> create trigger ins_sum\par
+    -> before insert ON numbers\par
+    ->  for each row SET @sum = NEW.n1;\par
+Query OK, 0 rows affected (0.17 sec)\par
+\par
+MariaDB [test]> show trigger;\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'trigger' at line 1\par
+MariaDB [test]> show triggers;\par
++---------+--------+---------+-------------------+--------+---------+--------------------------------------------+----------------+----------------------+----------------------+--------------------+\par
+| Trigger | Event  | Table   | Statement         | Timing | Created | sql_mode                                   | Definer        | character_set_client | collation_connection | Database Collation |\par
++---------+--------+---------+-------------------+--------+---------+--------------------------------------------+----------------+----------------------+----------------------+--------------------+\par
+| ins_sum | INSERT | numbers | SET @sum = NEW.n1 | BEFORE | NULL    | NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | latin1_swedish_ci  |\par
++---------+--------+---------+-------------------+--------+---------+--------------------------------------------+----------------+----------------------+----------------------+--------------------+\par
+1 row in set (0.06 sec)\par
+\par
+MariaDB [test]> create 'test'.'emp_details_AINS'\par
+    -> AFTER INSERT ON 'test'.'emp_details'\par
+    -> FOR EACH ROW\par
+    -> BEGIN\par
+    -> INSERT INTO log_emp_details VALUES(NEW.employee_id,NEW.salary,NOW());\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''test'.'emp_details_AINS'\par
+AFTER INSERT ON 'test'.'emp_details'\par
+FOR EACH ROW\par
+BEGI' at line 1\par
+MariaDB [test]> delimiter $$\par
+MariaDB [test]> create 'test'.'emp_details_AINS'\par
+    ->  AFTER INSERT ON 'test'.'emp_details'\par
+    ->  FOR EACH ROW\par
+    -> BEGIN\par
+    -> INSERT INTO log_emp_details VALUES(NEW.employee_id,NEW.salary,NOW());\par
+    -> END$$\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''test'.'emp_details_AINS'\par
+ AFTER INSERT ON 'test'.'emp_details'\par
+ FOR EACH ROW\par
+BE' at line 1\par
+MariaDB [test]> CREATE\par
+    -> TRIGGER 'test'.'emp_details_AINS'\par
+    -> AFTER INSERT ON 'test'.'emp_details'\par
+    -> FOR EACH ROW\par
+    -> BEGIN\par
+    -> INSERT INTO log_emp_details VALUES(NEW.employee_id,NEW.salary/NOW());\par
+    -> END$$\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''test'.'emp_details_AINS'\par
+AFTER INSERT ON 'test'.'emp_details'\par
+FOR EACH ROW\par
+BEGI' at line 2\par
+MariaDB [test]> CREATE\par
+    ->     TRIGGER 'test'.'emp_details_AINS'\par
+    ->     AFTER INSERT ON 'test'.'emp_details'\par
+    ->     FOR EACH ROW\par
+    ->     BEGIN\par
+    ->     INSERT INTO log_emp_details VALUES(NEW.employee_id,NEW.salary,NOW());\par
+    ->     END$$\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''test'.'emp_details_AINS'\par
+    AFTER INSERT ON 'test'.'emp_details'\par
+    FOR EACH ' at line 2\par
+MariaDB [test]> CREATE or REPLACE TRIGGER `emp_details_BINS`\par
+    -> BEFORE INSERT ON emp_details\par
+    -> FOR EACH ROW\par
+    -> BEGIN\par
+    -> SET NEW.FIRST_NAME = TRIM(NEW.FIRST_NAME);\par
+    -> SET NEW.LAST_NAME = TRIM(NEW.LAST_NAME);\par
+    -> SET NEW.JOB_ID = UPPER(NEW.JOB_ID);\par
+    -> END$$\par
+Query OK, 0 rows affected (0.61 sec)\par
+\par
+MariaDB [test]> INSERT INTO emp_details VALUES (334, ' Ana ', ' King', 'ANA',\par
+    -> \rquote 212.212.21201', '2013-02-05', 'it_prog', 17000, .50);\par
+    -> $$\par
+Query OK, 1 row affected (0.31 sec)\par
+\par
+MariaDB [test]> SELECT * FROM EMP_DETAILS;\par
+    -> $$\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL                     | PHONE_NUMBER  | HIRE_DATE  | JOB_ID  | SALARY   | COMMISSION_PCT |\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+|         100 | STEVEN     | KING      | STEVEN.KING@GMAIL.COM     | 2345678       | 1998-01-14 | AD_PRES | 24000.00 |           0.10 |\par
+|         101 | NEENA      | KOCHHAR   | NEENA.KOCHHAR@GMAIL.COM   | 2345678       | 2002-10-10 | AD_VP   | 17000.00 |           0.50 |\par
+|         102 | LEX        | DE HANN   | LEX.HANN@GMAIL.COM        | 2345678       | 1995-10-20 | AD_VP   | 17000.00 |           0.50 |\par
+|         103 | ALEXANDER  | HUNOLD    | ALEXANDER.HUNOLD@GMAIL.CO | 2345678       | 2002-11-23 | IT_PROG |  9000.00 |           0.25 |\par
+|         104 | BRUCE      | ERNST     | BRUCE.ERNST@GMAIL.COM     | 2345678       | 2003-08-24 | IT_PROG |  6000.00 |           0.25 |\par
+|         105 | DAVID      | AUSTIN    | DAVID.AUSTIN@GMAIL.COM    | 2345678       | 2005-04-10 | IT_PROG |  4800.00 |           0.25 |\par
+|         334 | Ana        | King      | ANA                       | 212.212.21201 | 2013-02-05 | IT_PROG | 17000.00 |           0.50 |\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+7 rows in set (0.00 sec)\par
+\par
+MariaDB [test]> CREATE or REPLACE TRIGGER `emp_details_AUPD`\par
+    -> AFTER UPDATE ON emp_details FOR EACH ROW\par
+    -> BEGIN\par
+    -> INSERT INTO LOG_EMP_DETAILS_UPDATE VALUES (user(),\par
+    -> CONCAT('Update employee Record ',\par
+    -> OLD.FIRST_NAME,' Old Salary :',OLD.Salary,' New Salary : ',\par
+    -> NEW.Salary),NOW());\par
+    -> END$$\par
+Query OK, 0 rows affected (0.19 sec)\par
+\par
+MariaDB [test]> UPDATE EMP_DETAILS SET SALARY = SALARY + 1000;\par
+    -> $$\par
+Query OK, 7 rows affected (0.34 sec)\par
+Rows matched: 7  Changed: 7  Warnings: 0\par
+\par
+MariaDB [test]> SELECT * FROM EMP_DETAILS;\par
+    -> $$\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL                     | PHONE_NUMBER  | HIRE_DATE  | JOB_ID  | SALARY   | COMMISSION_PCT |\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+|         100 | STEVEN     | KING      | STEVEN.KING@GMAIL.COM     | 2345678       | 1998-01-14 | AD_PRES | 25000.00 |           0.10 |\par
+|         101 | NEENA      | KOCHHAR   | NEENA.KOCHHAR@GMAIL.COM   | 2345678       | 2002-10-10 | AD_VP   | 18000.00 |           0.50 |\par
+|         102 | LEX        | DE HANN   | LEX.HANN@GMAIL.COM        | 2345678       | 1995-10-20 | AD_VP   | 18000.00 |           0.50 |\par
+|         103 | ALEXANDER  | HUNOLD    | ALEXANDER.HUNOLD@GMAIL.CO | 2345678       | 2002-11-23 | IT_PROG | 10000.00 |           0.25 |\par
+|         104 | BRUCE      | ERNST     | BRUCE.ERNST@GMAIL.COM     | 2345678       | 2003-08-24 | IT_PROG |  7000.00 |           0.25 |\par
+|         105 | DAVID      | AUSTIN    | DAVID.AUSTIN@GMAIL.COM    | 2345678       | 2005-04-10 | IT_PROG |  5800.00 |           0.25 |\par
+|         334 | Ana        | King      | ANA                       | 212.212.21201 | 2013-02-05 | IT_PROG | 18000.00 |           0.50 |\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+7 rows in set (0.00 sec)\par
+\par
+MariaDB [test]> SELECT * FROM LOG_EMP_DETAILS_UPDATE;\par
+    -> $$\par
++----------------+----------------------------------------------------------------------------+---------------------+\par
+| USER           | DESCRIPTION                                                                | UDTTIME             |\par
++----------------+----------------------------------------------------------------------------+---------------------+\par
+| root@localhost | Update employee Record STEVEN Old Salary :24000.00 New Salary : 25000.00   | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record NEENA Old Salary :17000.00 New Salary : 18000.00    | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record LEX Old Salary :17000.00 New Salary : 18000.00      | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record ALEXANDER Old Salary :9000.00 New Salary : 10000.00 | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record BRUCE Old Salary :6000.00 New Salary : 7000.00      | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record DAVID Old Salary :4800.00 New Salary : 5800.00      | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record Ana Old Salary :17000.00 New Salary : 18000.00      | 2018-01-24 09:10:48 |\par
++----------------+----------------------------------------------------------------------------+---------------------+\par
+7 rows in set (0.01 sec)\par
+\par
+MariaDB [test]> SHOW tables;\par
+    -> $$\par
++------------------------+\par
+| Tables_in_test         |\par
++------------------------+\par
+| emp_details            |\par
+| log_emp_details        |\par
+| log_emp_details_update |\par
+| numbers                |\par
+| price_logs             |\par
+| stud_marks             |\par
+| user_change_logs       |\par
++------------------------+\par
+7 rows in set (0.00 sec)\par
+\par
+MariaDB [test]> CREATE OR REPLACE TRIGGER `stud_marks_BUPD`\par
+    -> BEFORE UPDATE ON stud_marks FOR EACH ROW\par
+    -> BEGIN\par
+    -> SET NEW.TOTAL = NEW.SUB1 + NEW.SUB2 + NEW.SUB3 +\par
+    -> NEW.SUB4 + NEW.SUB5;\par
+    -> SET NEW.PERCENTAGE = NEW.TOTAL/5;\par
+    -> IF NEW.PERCENTAGE >=90\par
+    -> THEN SET NEW.GRADE = 'EXCELLENT';\par
+    -> ELSEIF NEW.PERCENTAGE>=75 AND NEW.PERCENTAGE<90\par
+    -> THEN SET NEW.GRADE = 'VERY GOOD';\par
+    -> ELSEIF NEW.PERCENTAGE>=60 AND NEW.PERCENTAGE<75\par
+    -> THEN SET NEW.GRADE = 'GOOD';\par
+    -> ELSEIF NEW.PERCENTAGE>=40 AND NEW.PERCENTAGE<60\par
+    -> THEN SET NEW.GRADE = 'AVERAGE';\par
+    -> ELSE SET NEW.GRADE = 'NOT PROMOTED';\par
+    -> END IF;\par
+    -> END$$\par
+Query OK, 0 rows affected (0.34 sec)\par
+\par
+MariaDB [test]> UPDATE STUD_MARKS SET SUB1 = 54, SUB2 = 69, SUB3 = 89, SUB4 =\par
+    -> 87, SUB5 = 59 WHERE STUDENT_ID = 1;\par
+    -> $$\par
+Query OK, 1 row affected (0.20 sec)\par
+Rows matched: 1  Changed: 1  Warnings: 0\par
+\par
+MariaDB [test]> SELECT * FROM STUD_MARKS;\par
+    -> $$\par
++------------+---------+-------+-------+-------+-------+-------+--------+------------+-------+\par
+| STUDENT_ID | NAME    | SUB1  | SUB2  | SUB3  | SUB4  | SUB5  | TOTAL  | PERCENTAGE | GRADE |\par
++------------+---------+-------+-------+-------+-------+-------+--------+------------+-------+\par
+|          1 | ALEX    | 54.00 | 69.00 | 89.00 | 87.00 | 59.00 | 358.00 |      71.60 | GOOD  |\par
+|          2 | BOB     |  NULL |  NULL |  NULL |  NULL |  NULL |   NULL |       NULL | NULL  |\par
+|          3 | CHARLEY |  NULL |  NULL |  NULL |  NULL |  NULL |   NULL |       NULL | NULL  |\par
+|          4 | DONNA   |  NULL |  NULL |  NULL |  NULL |  NULL |   NULL |       NULL | NULL  |\par
++------------+---------+-------+-------+-------+-------+-------+--------+------------+-------+\par
+4 rows in set (0.00 sec)\par
+\par
+MariaDB [test]> UPDATE STUD_MARKS SET SUB1 = 54, SUB2 = 69, SUB3 = 89, SUB4 =\par
+    -> 87, SUB5 = 59 WHERE STUDENT_ID = 2;\par
+    -> $$\par
+Query OK, 1 row affected (0.06 sec)\par
+Rows matched: 1  Changed: 1  Warnings: 0\par
+\par
+MariaDB [test]>  SELECT * FROM STUD_MARKS;\par
+    -> $$\par
++------------+---------+-------+-------+-------+-------+-------+--------+------------+-------+\par
+| STUDENT_ID | NAME    | SUB1  | SUB2  | SUB3  | SUB4  | SUB5  | TOTAL  | PERCENTAGE | GRADE |\par
++------------+---------+-------+-------+-------+-------+-------+--------+------------+-------+\par
+|          1 | ALEX    | 54.00 | 69.00 | 89.00 | 87.00 | 59.00 | 358.00 |      71.60 | GOOD  |\par
+|          2 | BOB     | 54.00 | 69.00 | 89.00 | 87.00 | 59.00 | 358.00 |      71.60 | GOOD  |\par
+|          3 | CHARLEY |  NULL |  NULL |  NULL |  NULL |  NULL |   NULL |       NULL | NULL  |\par
+|          4 | DONNA   |  NULL |  NULL |  NULL |  NULL |  NULL |   NULL |       NULL | NULL  |\par
++------------+---------+-------+-------+-------+-------+-------+--------+------------+-------+\par
+4 rows in set (0.00 sec)\par
+\par
+MariaDB [test]> CREATE or REPLACE TRIGGER `emp_details_ADEL`\par
+    -> AFTER DELETE ON emp_details FOR EACH ROW\par
+    -> BEGIN\par
+    -> INSERT INTO LOG_EMP_DETAILS_UPDATE VALUES (user(),\par
+    -> CONCAT('Delete Employee Record', OLD.FIRST_NAME, '->\par
+    '> Deleted on '),NOW());\par
+    -> END$$\par
+Query OK, 0 rows affected (0.09 sec)\par
+\par
+MariaDB [test]> SELECT * FROM EMP_DETAILS;\par
+    -> $$\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL                     | PHONE_NUMBER  | HIRE_DATE  | JOB_ID  | SALARY   | COMMISSION_PCT |\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+|         100 | STEVEN     | KING      | STEVEN.KING@GMAIL.COM     | 2345678       | 1998-01-14 | AD_PRES | 25000.00 |           0.10 |\par
+|         101 | NEENA      | KOCHHAR   | NEENA.KOCHHAR@GMAIL.COM   | 2345678       | 2002-10-10 | AD_VP   | 18000.00 |           0.50 |\par
+|         102 | LEX        | DE HANN   | LEX.HANN@GMAIL.COM        | 2345678       | 1995-10-20 | AD_VP   | 18000.00 |           0.50 |\par
+|         103 | ALEXANDER  | HUNOLD    | ALEXANDER.HUNOLD@GMAIL.CO | 2345678       | 2002-11-23 | IT_PROG | 10000.00 |           0.25 |\par
+|         104 | BRUCE      | ERNST     | BRUCE.ERNST@GMAIL.COM     | 2345678       | 2003-08-24 | IT_PROG |  7000.00 |           0.25 |\par
+|         105 | DAVID      | AUSTIN    | DAVID.AUSTIN@GMAIL.COM    | 2345678       | 2005-04-10 | IT_PROG |  5800.00 |           0.25 |\par
+|         334 | Ana        | King      | ANA                       | 212.212.21201 | 2013-02-05 | IT_PROG | 18000.00 |           0.50 |\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+7 rows in set (0.00 sec)\par
+\par
+MariaDB [test]> DELETE FROM EMP_DETAILS WHERE EMPLOYEE_ID = 100;\par
+    -> $$\par
+Query OK, 1 row affected (0.09 sec)\par
+\par
+MariaDB [test]> SELECT * FROM EMP_DETAILS;\par
+    -> $$\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+| EMPLOYEE_ID | FIRST_NAME | LAST_NAME | EMAIL                     | PHONE_NUMBER  | HIRE_DATE  | JOB_ID  | SALARY   | COMMISSION_PCT |\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+|         101 | NEENA      | KOCHHAR   | NEENA.KOCHHAR@GMAIL.COM   | 2345678       | 2002-10-10 | AD_VP   | 18000.00 |           0.50 |\par
+|         102 | LEX        | DE HANN   | LEX.HANN@GMAIL.COM        | 2345678       | 1995-10-20 | AD_VP   | 18000.00 |           0.50 |\par
+|         103 | ALEXANDER  | HUNOLD    | ALEXANDER.HUNOLD@GMAIL.CO | 2345678       | 2002-11-23 | IT_PROG | 10000.00 |           0.25 |\par
+|         104 | BRUCE      | ERNST     | BRUCE.ERNST@GMAIL.COM     | 2345678       | 2003-08-24 | IT_PROG |  7000.00 |           0.25 |\par
+|         105 | DAVID      | AUSTIN    | DAVID.AUSTIN@GMAIL.COM    | 2345678       | 2005-04-10 | IT_PROG |  5800.00 |           0.25 |\par
+|         334 | Ana        | King      | ANA                       | 212.212.21201 | 2013-02-05 | IT_PROG | 18000.00 |           0.50 |\par
++-------------+------------+-----------+---------------------------+---------------+------------+---------+----------+----------------+\par
+6 rows in set (0.00 sec)\par
+\par
+MariaDB [test]> SELECT * FROM LOG_EMP_DETAILS_UPDATE;\par
+    -> $$\par
++----------------+----------------------------------------------------------------------------+---------------------+\par
+| USER           | DESCRIPTION                                                                | UDTTIME             |\par
++----------------+----------------------------------------------------------------------------+---------------------+\par
+| root@localhost | Update employee Record STEVEN Old Salary :24000.00 New Salary : 25000.00   | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record NEENA Old Salary :17000.00 New Salary : 18000.00    | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record LEX Old Salary :17000.00 New Salary : 18000.00      | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record ALEXANDER Old Salary :9000.00 New Salary : 10000.00 | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record BRUCE Old Salary :6000.00 New Salary : 7000.00      | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record DAVID Old Salary :4800.00 New Salary : 5800.00      | 2018-01-24 09:10:48 |\par
+| root@localhost | Update employee Record Ana Old Salary :17000.00 New Salary : 18000.00      | 2018-01-24 09:10:48 |\par
+| root@localhost | Delete Employee RecordSTEVEN->\par
+Deleted on                                  | 2018-01-24 09:31:21 |\par
++----------------+----------------------------------------------------------------------------+---------------------+\par
+8 rows in set (0.00 sec)\par
+\par
+MariaDB [test]> CREATE or REPLACE TRIGGER before_products_update\par
+    -> BEFORE UPDATE on Products FOR EACH ROW\par
+    -> BEGIN\par
+    -> INSERT INTO price_logs (product_code,price) VALUES(old.c\par
+    -> ode,old.price);\par
+    -> END$$\par
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ode,old.price);\par
+END' at line 5\par
+MariaDB [test]> show tables;\par
+    -> $$\par
++------------------------+\par
+| Tables_in_test         |\par
++------------------------+\par
+| emp_details            |\par
+| log_emp_details        |\par
+| log_emp_details_update |\par
+| numbers                |\par
+| price_logs             |\par
+| stud_marks             |\par
+| user_change_logs       |\par
++------------------------+\par
+7 rows in set (0.02 sec)\par
+\par
+MariaDB [test]>\par
+}
+ 
